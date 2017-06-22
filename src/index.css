@@ -1,0 +1,30 @@
+body {
+  min-height: 1000px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 15px 0;
+}
+
+.container-fluid,
+.container-fluid .row {
+  height: inherit;
+}
+
+#layout-area {
+  height: 100%;
+  width: 100%;
+  background: #eee;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.inline-block {
+  display: inline-block;
+}
