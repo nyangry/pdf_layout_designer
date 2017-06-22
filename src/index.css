@@ -17,6 +17,10 @@ body {
   background: #eee;
 }
 
+#layout-area canvas {
+  border: 1px solid red;
+}
+
 .mb10 {
   margin-bottom: 10px;
 }

@@ -13,8 +13,10 @@
   <div class="container-fluid">
     <div class="row">
 
-      <div id="layout-area" class="col-9">
-        <canvas id=""></canvas>
+      <div class="col-9">
+        <div id="layout-area">
+          <canvas id=""></canvas>
+        </div>
       </div>
 
       <div class="col-3">
@@ -22,7 +24,7 @@
           <div class="card-header">Canvas Setting</div>
           <div class="card-block">
             <div class="mb10">
-              <div class="card-title">load SVG</div>
+              <div class="card-title">Load SVG</div>
               <label class="custom-file">
                 <input type="file" id="file" class="custom-file-input">
                 <span class="custom-file-control"></span>
@@ -30,7 +32,7 @@
             </div>
 
             <div class="mb10">
-              <div class="card-title">set background</div>
+              <div class="card-title">Set background</div>
               <label class="custom-file">
                 <input type="file" id="file" class="custom-file-input">
                 <span class="custom-file-control"></span>
@@ -38,14 +40,20 @@
             </div>
 
             <div class="mb10">
-              <div class="card-title">size</div>
+              <div class="card-title">Size</div>
 
               <div class="row">
                 <div class="col-6">
-                  <input type="text" class="form-control" placeholder="width">
+                  <div class="form-group">
+                    <label>Width</label>
+                    <input type="text" class="form-control">
+                  </div>
                 </div>
                 <div class="col-6">
-                  <input type="text" class="form-control" placeholder="height">
+                  <div class="form-group">
+                    <label>Height</label>
+                    <input type="text" class="form-control">
+                  </div>
                 </div>
               </div>
             </div>
