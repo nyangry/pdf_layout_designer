@@ -32,3 +32,8 @@ body {
 .inline-block {
   display: inline-block;
 }
+
+.btn,
+.custom-file input {
+  cursor: pointer;
+}
