@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize
   {
-    // set canvas size into witdh and height setting
+    // set canvas size into witdh and height text
     elements.$canvas_width.innerHTML  = canvas.getWidth()
     elements.$canvas_height.innerHTML = canvas.getHeight()
   }
@@ -55,10 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // on after canvas rendered
     canvas.on('after:render', (e) => {
-      const pow = Math.pow(10, 2)
+      // set canvas size into witdh and height text
+      {
+        const pow = Math.pow(10, 2)
 
-      elements.$canvas_width.innerHTML  = Math.round(canvas.getWidth() * pow) / pow
-      elements.$canvas_height.innerHTML = Math.round(canvas.getHeight() * pow) / pow
+        elements.$canvas_width.innerHTML  = Math.round(canvas.getWidth() * pow) / pow
+        elements.$canvas_height.innerHTML = Math.round(canvas.getHeight() * pow) / pow
+      }
     })
   }
 })
