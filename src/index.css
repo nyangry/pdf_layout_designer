@@ -37,3 +37,8 @@ body {
 .custom-file input {
   cursor: pointer;
 }
+
+.custom-file-control.canvas-import-svg-file::before,
+.custom-file-control.canvas-import-background-image-file::before {
+  content: 'Import'
+}
