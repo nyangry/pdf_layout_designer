@@ -26,9 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const files = e.target.files
       const reader = new FileReader()
 
+      // skip when file not selected
+      if (files.length === 0) {
+        return
+      }
+
       reader.readAsDataURL(files[0])
+
       reader.onload = () => {
-        if (!reader.result.startsWith('data:image')) {
+        if (!files[0].type.startsWith('image')) {
           return
         }
 
