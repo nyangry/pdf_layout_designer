@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // define app elements
   const elements = {}
   elements.$layout_area                       = document.getElementById('layout-area')
-  elements.$canvas_load_svg_file              = document.getElementById('canvas-load-svg-file')
-  elements.$canvas_load_background_image_file = document.getElementById('canvas-load-background-image-file')
+  elements.$canvas_import_svg_file              = document.getElementById('canvas-import-svg-file')
+  elements.$canvas_import_background_image_file = document.getElementById('canvas-import-background-image-file')
   elements.$canvas_width                      = document.getElementById('canvas-width')
   elements.$canvas_height                     = document.getElementById('canvas-height')
 
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set Event Listeners
   {
-    // load svg file
+    // import svg file
 
-    // load background file
-    elements.$canvas_load_background_image_file.addEventListener('change', (e) => {
+    // import background file
+    elements.$canvas_import_background_image_file.addEventListener('change', (e) => {
       const files = e.target.files
       const reader = new FileReader()
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // on after canvas rendered
     canvas.on('after:render', (e) => {
-      const pow = Math.pow(10, 5)
+      const pow = Math.pow(10, 2)
 
       elements.$canvas_width.innerHTML  = Math.round(canvas.getWidth() * pow) / pow
       elements.$canvas_height.innerHTML = Math.round(canvas.getHeight() * pow) / pow
