@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set Event Listeners
   {
+    let mouse_down_position = { x: 0, y: 0 }
+
     // import JSON file
     elements.$canvas_import_json_file.addEventListener('change', (e) => {
       const files  = e.target.files
@@ -105,6 +107,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // export SVG file
     elements.$canvas_export_svg_file.addEventListener('click', (e) => {
       e.currentTarget.href = 'data:image/svg+xml;utf8,' + canvas.toSVG()
+    })
+
+    // on mouse down
+    canvas.on('mouse:down', (e) => {
+      mouse_down_position = canvas.getPointer(e.e)
+    })
+
+    // on mouse up
+    canvas.on('mouse:up', (e) => {
+      const mouse_up_position = canvas.getPointer(e.e)
+
+      // add Rect
+      {
+        let rect_width  = mouse_up_position.x - mouse_down_position.x
+        let rect_height = mouse_up_position.y - mouse_down_position.y
+
+        canvas.add(new fabric.Rect({
+          left: mouse_down_position.x,
+          top: mouse_down_position.y,
+          width: rect_width,
+          height: rect_height,
+          fill: 'rgba(0, 0, 255, 0.13)'
+        }))
+      }
     })
   }
 })
