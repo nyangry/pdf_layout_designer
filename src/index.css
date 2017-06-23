@@ -11,13 +11,13 @@ body {
   height: inherit;
 }
 
-#layout-area {
+.layout-area {
   height: 100%;
   width: 100%;
   background: #eee;
 }
 
-#layout-area canvas {
+.layout-area canvas {
   border: 1px solid red;
 }
 

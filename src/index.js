@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const canvas = new fabric.Canvas('canvas')
+  const canvas = new fabric.Canvas('js-canvas')
 
   // define app elements
   const elements = {}
-  elements.$layout_area                         = document.getElementById('layout-area')
-  elements.$canvas_import_svg_file              = document.getElementById('canvas-import-svg-file')
-  elements.$canvas_import_background_image_file = document.getElementById('canvas-import-background-image-file')
-  elements.$canvas_export_svg_file              = document.getElementById('canvas-export-svg-file')
-  elements.$canvas_width                        = document.getElementById('canvas-width')
-  elements.$canvas_height                       = document.getElementById('canvas-height')
+  elements.$layout_area                         = document.getElementById('js-layout-area')
+  elements.$canvas_import_svg_file              = document.getElementById('js-canvas-import-svg-file')
+  elements.$canvas_import_background_image_file = document.getElementById('js-canvas-import-background-image-file')
+  elements.$canvas_export_svg_file              = document.getElementById('js-canvas-export-svg-file')
+  elements.$canvas_width                        = document.getElementById('js-canvas-width')
+  elements.$canvas_height                       = document.getElementById('js-canvas-height')
 
   // Initialize
   {

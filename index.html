@@ -15,8 +15,8 @@
     <div class="row">
 
       <div class="col-9">
-        <div id="layout-area">
-          <canvas id="canvas"></canvas>
+        <div id="js-layout-area" class="layout-area">
+          <canvas id="js-canvas"></canvas>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
             <div class="mb10">
               <div class="card-title">Import SVG</div>
               <label class="custom-file">
-                <input id="canvas-import-svg-file" type="file" id="file" class="custom-file-input">
+                <input id="js-canvas-import-svg-file" type="file" class="custom-file-input">
                 <span class="custom-file-control"></span>
               </label>
             </div>
@@ -35,7 +35,7 @@
             <div class="mb10">
               <div class="card-title">Import Background Image</div>
               <label class="custom-file">
-                <input id="canvas-import-background-image-file" type="file" id="file" class="custom-file-input">
+                <input id="js-canvas-import-background-image-file" type="file" class="custom-file-input">
                 <span class="custom-file-control"></span>
               </label>
             </div>
@@ -43,7 +43,7 @@
             <div class="mb10">
               <div class="card-title">Export SVG</div>
 
-              <a id="canvas-export-svg-file" download="pdf_layout.svg" href="" class="btn btn-primary">Export</a>
+              <a id="js-canvas-export-svg-file" download="pdf_layout.svg" href="" class="btn btn-primary">Export</a>
             </div>
 
             <div class="mb10">
@@ -58,8 +58,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td id="canvas-width"></td>
-                    <td id="canvas-height"></td>
+                    <td id="js-canvas-width"></td>
+                    <td id="js-canvas-height"></td>
                   </tr>
                 </tbody>
               </table>
