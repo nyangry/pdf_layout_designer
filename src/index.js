@@ -55,8 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // on after canvas rendered
     canvas.on('after:render', (e) => {
-      elements.$canvas_width.innerHTML  = canvas.getWidth()
-      elements.$canvas_height.innerHTML = canvas.getHeight()
+      const pow = Math.pow(10, 5)
+
+      elements.$canvas_width.innerHTML  = Math.round(canvas.getWidth() * pow) / pow
+      elements.$canvas_height.innerHTML = Math.round(canvas.getHeight() * pow) / pow
     })
   }
 })
