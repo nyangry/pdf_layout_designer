@@ -33,12 +33,20 @@ body {
   display: inline-block;
 }
 
-.btn,
-.custom-file input {
+.btn {
   cursor: pointer;
 }
 
-.custom-file-control.canvas-import-svg-file::before,
+.custom-file input {
+  display: none;
+}
+
+.custom-file-control.canvas-import-json-file::before,
 .custom-file-control.canvas-import-background-image-file::before {
   content: 'Import'
+}
+
+.custom-file-control.canvas-import-json-file::after,
+.custom-file-control.canvas-import-background-image-file::after {
+  content: ''
 }

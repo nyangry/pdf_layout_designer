@@ -25,25 +25,29 @@
           <div class="card-header">Canvas Setting</div>
           <div class="card-block">
             <div class="mb10">
-              <div class="card-title">Import SVG</div>
-              <label class="custom-file">
-                <input id="js-canvas-import-svg-file" type="file" class="custom-file-input">
-                <span class="custom-file-control canvas-import-svg-file"></span>
+              <div class="card-title">Import / Export JSON</div>
+
+              <label class="custom-file btn btn-secondary" >
+                <input id="js-canvas-import-json-file" type="file" class="custom-file-input">
+                Import
               </label>
+
+              <a id="js-canvas-export-json-file" download="pdf_layout.json" href="" class="btn btn-primary">Export</a>
             </div>
 
             <div class="mb10">
               <div class="card-title">Import Background Image</div>
-              <label class="custom-file">
+
+              <label class="custom-file btn btn-secondary" >
                 <input id="js-canvas-import-background-image-file" type="file" class="custom-file-input">
-                <span class="custom-file-control canvas-import-background-image-file"></span>
+                Import
               </label>
             </div>
 
             <div class="mb10">
               <div class="card-title">Export SVG</div>
 
-              <a id="js-canvas-export-svg-file" download="pdf_layout.svg" href="" class="btn btn-primary">Export</a>
+              <a id="js-canvas-export-svg-file" download="pdf_layout.svg" href="" class="btn btn-success">Export</a>
             </div>
 
             <div class="mb10">
