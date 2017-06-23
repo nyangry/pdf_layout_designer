@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let canvas = new fabric.Canvas('canvas')
+  const canvas = new fabric.Canvas('canvas')
 
   // define app elements
-  let elements = {}
+  const elements = {}
   elements.$canvas_load_svg_file              = document.getElementById('canvas-load-svg-file')
   elements.$canvas_load_background_image_file = document.getElementById('canvas-load-background-image-file')
   elements.$canvas_width_input                = document.getElementById('canvas-width-input')
