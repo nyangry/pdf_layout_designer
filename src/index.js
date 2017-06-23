@@ -53,8 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
 
-    // set width
-
-    // set height
+    // on after canvas rendered
+    canvas.on('after:render', (e) => {
+      elements.$canvas_width.innerHTML  = canvas.getWidth()
+      elements.$canvas_height.innerHTML = canvas.getHeight()
+    })
   }
 })
