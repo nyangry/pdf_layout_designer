@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.$layout_area                       = document.getElementById('layout-area')
   elements.$canvas_load_svg_file              = document.getElementById('canvas-load-svg-file')
   elements.$canvas_load_background_image_file = document.getElementById('canvas-load-background-image-file')
-  elements.$canvas_width_input                = document.getElementById('canvas-width-input')
-  elements.$canvas_height_input               = document.getElementById('canvas-height-input')
+  elements.$canvas_width                      = document.getElementById('canvas-width')
+  elements.$canvas_height                     = document.getElementById('canvas-height')
 
   // Initialize
   {
     // set canvas size into witdh and height setting
-    elements.$canvas_width_input.value  = canvas.getWidth()
-    elements.$canvas_height_input.value = canvas.getHeight()
+    elements.$canvas_width.innerHTML  = canvas.getWidth()
+    elements.$canvas_height.innerHTML = canvas.getHeight()
   }
 
   // Set Event Listeners
