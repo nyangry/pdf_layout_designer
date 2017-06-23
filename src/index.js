@@ -20,6 +20,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set Event Listeners
   {
     // import svg file
+    elements.$canvas_import_svg_file.addEventListener('change', (e) => {
+      const files = e.target.files
+      const reader = new FileReader()
+
+      // skip when file not selected
+      if (files.length === 0) {
+        return
+      }
+
+      // load as plain XML text
+      reader.readAsText(files[0])
+
+      reader.onload = () => {
+        if (!files[0].type.startsWith('image/svg+xml')) {
+          return
+        }
+
+        fabric.loadSVGFromString(reader.result, (objects, options) => {
+          let object = fabric.util.groupSVGElements(objects, options)
+
+          canvas.add(object).renderAll()
+          canvas.setWidth(object.width)
+          canvas.setHeight(object.height)
+        })
+      }
+    })
 
     // import background file
     elements.$canvas_import_background_image_file.addEventListener('change', (e) => {
