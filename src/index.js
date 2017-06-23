@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // define app elements
   const elements = {}
-  elements.$layout_area                       = document.getElementById('layout-area')
+  elements.$layout_area                         = document.getElementById('layout-area')
   elements.$canvas_import_svg_file              = document.getElementById('canvas-import-svg-file')
   elements.$canvas_import_background_image_file = document.getElementById('canvas-import-background-image-file')
-  elements.$canvas_width                      = document.getElementById('canvas-width')
-  elements.$canvas_height                     = document.getElementById('canvas-height')
+  elements.$canvas_export_svg_file              = document.getElementById('canvas-export-svg-file')
+  elements.$canvas_width                        = document.getElementById('canvas-width')
+  elements.$canvas_height                       = document.getElementById('canvas-height')
 
   // Initialize
   {
@@ -62,6 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.$canvas_width.innerHTML  = Math.round(canvas.getWidth() * pow) / pow
         elements.$canvas_height.innerHTML = Math.round(canvas.getHeight() * pow) / pow
       }
+    })
+
+    // export svg file
+    elements.$canvas_export_svg_file.addEventListener('click', (e) => {
+      e.currentTarget.href = 'data:image/svg+xml;utf8,' + canvas.toSVG()
     })
   }
 })
