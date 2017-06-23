@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // define app elements
   const elements = {}
   elements.$layout_area                         = document.getElementById('js-layout-area')
-  elements.$canvas_import_svg_file              = document.getElementById('js-canvas-import-svg-file')
+  elements.$canvas_import_json_file             = document.getElementById('js-canvas-import-json-file')
+  elements.$canvas_export_json_file             = document.getElementById('js-canvas-export-json-file')
   elements.$canvas_import_background_image_file = document.getElementById('js-canvas-import-background-image-file')
   elements.$canvas_export_svg_file              = document.getElementById('js-canvas-export-svg-file')
   elements.$canvas_width                        = document.getElementById('js-canvas-width')
@@ -19,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set Event Listeners
   {
-    // import svg file
-    elements.$canvas_import_svg_file.addEventListener('change', (e) => {
-      const files = e.target.files
+    // import JSON file
+    elements.$canvas_import_json_file.addEventListener('change', (e) => {
+      const files  = e.target.files
       const reader = new FileReader()
 
       // skip when file not selected
@@ -29,27 +30,31 @@ document.addEventListener('DOMContentLoaded', () => {
         return
       }
 
-      // load as plain XML text
+      // load as plain JSON text
       reader.readAsText(files[0])
 
       reader.onload = () => {
-        if (!files[0].type.startsWith('image/svg+xml')) {
+        if (!files[0].type.startsWith('application/json')) {
           return
         }
 
-        fabric.loadSVGFromString(reader.result, (objects, options) => {
-          let object = fabric.util.groupSVGElements(objects, options)
+        canvas.loadFromJSON(reader.result, () => {
+          background_image = JSON.parse(reader.result).backgroundImage
 
-          canvas.add(object).renderAll()
-          canvas.setWidth(object.width)
-          canvas.setHeight(object.height)
+          canvas.setWidth(background_image.width)
+          canvas.setHeight(background_image.height)
         })
       }
     })
 
+    // export JSON file
+    elements.$canvas_export_json_file.addEventListener('click', (e) => {
+      e.currentTarget.href = 'data:application/json;utf8,' + JSON.stringify(canvas.toJSON())
+    })
+
     // import background file
     elements.$canvas_import_background_image_file.addEventListener('change', (e) => {
-      const files = e.target.files
+      const files  = e.target.files
       const reader = new FileReader()
 
       // skip when file not selected
@@ -87,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // on after canvas rendered
-    canvas.on('after:render', (e) => {
+    canvas.on('after:render', () => {
       // set canvas size into witdh and height text
       {
         const pow = Math.pow(10, 2)
@@ -97,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
 
-    // export svg file
+    // export SVG file
     elements.$canvas_export_svg_file.addEventListener('click', (e) => {
       e.currentTarget.href = 'data:image/svg+xml;utf8,' + canvas.toSVG()
     })
