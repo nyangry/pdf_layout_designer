@@ -8,5 +8,9 @@
   "dependencies": {
     "bootstrap": "^4.1.1",
     "fabric": "^2.3.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.8.3",
+    "webpack-dev-server": "^3.1.4"
   }
 }
