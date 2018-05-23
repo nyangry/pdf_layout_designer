@@ -1,0 +1,12 @@
+{
+  "name": "pdf_layout_designer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nyangry/pdf_layout_designer.git",
+  "author": "nyangry <iacta.alea.esto@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "fabric": "^2.3.0"
+  }
+}
