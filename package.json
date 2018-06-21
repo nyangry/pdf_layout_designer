@@ -10,11 +10,14 @@
     "watch": "webpack --watch",
     "build": "webpack"
   },
-  "dependencies": {
-    "bootstrap": "^4.1.1",
-    "fabric": "^2.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "bulma": "^0.7.1",
+    "css-loader": "^0.28.11",
+    "fabric": "^2.3.3",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
   }
