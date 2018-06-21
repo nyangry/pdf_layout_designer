@@ -1,3 +1,7 @@
+import './app.scss';
+
+const fabric = require("fabric");
+
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = new fabric.Canvas('js-canvas')
 
