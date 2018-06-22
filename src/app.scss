@@ -17,3 +17,11 @@
 .layout-area canvas {
   border: 1px solid red;
 }
+
+.tab-content {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
