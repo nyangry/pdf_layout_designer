@@ -1,4 +1,5 @@
 const path = require('path');
+
 const src_directory = path.resolve(__dirname, 'src');
 const dist_directory = path.resolve(__dirname, 'dist');
 
@@ -17,9 +18,13 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.scss$|\.sass$/,
+        test: /\.(scss|sass)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       }
     ]
+  },
+  serve: {
+    open: true,
+    content: './dist'
   }
 }
