@@ -22,9 +22,5 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       }
     ]
-  },
-  serve: {
-    open: true,
-    content: './dist'
   }
 }
