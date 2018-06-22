@@ -1,17 +1,12 @@
 @import '~bulma/bulma.sass';
-
-body {
-  min-height: 1000px;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  margin: 15px 0;
-}
-
-.container-fluid,
-.container-fluid .row {
-  height: inherit;
-}
+/*  */
+/* body { */
+/*   min-height: 1000px; */
+/*   height: 100%; */
+/*   width: 100%; */
+/*   position: absolute; */
+/*   margin: 15px 0; */
+/* } */
 
 .layout-area {
   height: 100%;
@@ -21,34 +16,4 @@ body {
 
 .layout-area canvas {
   border: 1px solid red;
-}
-
-.mb10 {
-  margin-bottom: 10px;
-}
-
-.mb20 {
-  margin-bottom: 20px;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.btn {
-  cursor: pointer;
-}
-
-.custom-file input {
-  display: none;
-}
-
-.custom-file-control.canvas-import-json-file::before,
-.custom-file-control.canvas-import-background-image-file::before {
-  content: 'Import'
-}
-
-.custom-file-control.canvas-import-json-file::after,
-.custom-file-control.canvas-import-background-image-file::after {
-  content: ''
 }
