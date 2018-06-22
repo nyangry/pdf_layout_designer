@@ -12,10 +12,21 @@
   height: 100%;
   width: 100%;
   background: #eee;
+  border-right: 1px solid #dbdbdb;
 }
 
 .layout-area canvas {
   border: 1px solid red;
+}
+
+.control-area {
+  cursor: pointer;
+
+  table {
+    td {
+      border-left: none;
+    }
+  }
 }
 
 .tab-content {
