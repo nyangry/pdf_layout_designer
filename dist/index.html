@@ -23,25 +23,28 @@
         </section>
       </div>
 
-      <div class="column">
-        <section class="section">
-          <div class="tabs is-toggle is-fullwidth">
-            <ul>
-              <li class="is-active js-tab">
-                <a>
-                  <span>Canvas</span>
-                </a>
-              </li>
-              <li class="js-tab">
-                <a>
-                  <span>Objects</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+      <div class="column control-area">
 
-          <div class="tab-contents">
-            <div class="tab-content is-active js-tab-content">
+        <div class="tabs is-fullwidth">
+          <ul>
+            <li class="is-active js-tab">
+              <a>
+                <span>Canvas</span>
+              </a>
+            </li>
+            <li class="js-tab">
+              <a>
+                <span>Objects</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-contents">
+
+
+          <div class="tab-content is-active js-tab-content">
+            <section class="section">
               <h4 class="title is-5">Import / Export JSON</h4>
 
               <div class="columns">
@@ -108,12 +111,18 @@
                   </table>
                 </div>
               </div>
-            </div>
-
-            <div class="tab-content js-tab-content">
-            </div>
+            </section>
           </div>
-        </section>
+
+          <div class="tab-content js-tab-content">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+              <thead></thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
 
     </div>
