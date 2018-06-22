@@ -1,6 +1,5 @@
 import './app.scss';
-
-const fabric = require("fabric");
+require("fabric");
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = new fabric.Canvas('js-canvas')
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         canvas.loadFromJSON(reader.result, () => {
-          background_image = JSON.parse(reader.result).backgroundImage
+          const background_image = JSON.parse(reader.result).backgroundImage
 
           canvas.setWidth(background_image.width)
           canvas.setHeight(background_image.height)
@@ -76,23 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         fabric.Image.fromURL(reader.result, (background_image) => {
-          const max_width = elements.$layout_area.offsetWidth
+          const max_width = elements.$layout_area.offsetWidth;
+          let new_canvas_width = background_image.width;
+          let new_canvas_height = background_image.height;
 
           // reset canvas and background background_image
           if (background_image.width > max_width) {
-            canvas.setWidth()
+            background_image.scaleToWidth(max_width, 1)
 
-            const background_image_aspect_ratio = background_image.width / background_image.height
-
-            background_image.set({
-              width: max_width,
-              height: max_width / background_image_aspect_ratio
-            })
+            new_canvas_width = max_width
+            new_canvas_height = max_width / (background_image.width / background_image.height)
           }
 
           canvas.setBackgroundImage(background_image, canvas.renderAll.bind(canvas))
-          canvas.setWidth(background_image.width)
-          canvas.setHeight(background_image.height)
+          canvas.setWidth(new_canvas_width)
+          canvas.setHeight(new_canvas_height)
         })
       }
     })
