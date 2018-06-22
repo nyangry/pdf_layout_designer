@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.$canvas_export_svg_file              = document.getElementById('js-canvas-export-svg-file')
   elements.$canvas_width                        = document.getElementById('js-canvas-width')
   elements.$canvas_height                       = document.getElementById('js-canvas-height')
+  elements.$tabs                                = document.querySelectorAll('.js-tab')
+  elements.$tab_contents                        = document.querySelectorAll('.js-tab-content')
 
   // Initialize
   {
@@ -133,5 +135,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }))
       }
     })
+
+    // change tab
+    elements.$tabs.forEach(($tab) => {
+      $tab.addEventListener('click', (e) => {
+        const $self = e.currentTarget;
+        const index = [].indexOf.call(elements.$tabs, $self);
+
+        elements.$tabs.forEach(($tab) => {
+          $tab.classList.remove('is-active');
+        });
+
+        $self.classList.add('is-active');
+
+        elements.$tab_contents.forEach(($tab_content) => {
+          $tab_content.classList.remove('is-active');
+        });
+
+        elements.$tab_contents[index].classList.add('is-active');
+      });
+    });
   }
 })
