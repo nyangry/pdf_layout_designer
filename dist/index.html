@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <title>PDF Layout Designer</title>
-    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.12/fabric.min.js"></script> -->
     <script src="app.js"></script>
 
   </head>
@@ -28,12 +27,12 @@
         <section class="section">
           <div class="tabs is-toggle is-fullwidth">
             <ul>
-              <li class="is-active">
+              <li class="is-active js-tab">
                 <a>
                   <span>Canvas</span>
                 </a>
               </li>
-              <li>
+              <li class="js-tab">
                 <a>
                   <span>Objects</span>
                 </a>
@@ -41,76 +40,78 @@
             </ul>
           </div>
 
-          <div class="tab-content is-active">
-            <h4 class="title is-5">Import / Export JSON</h4>
+          <div class="tab-contents">
+            <div class="tab-content is-active js-tab-content">
+              <h4 class="title is-5">Import / Export JSON</h4>
 
-            <div class="columns">
-              <div class="column">
-                <div class="file">
-                  <label class="file-label">
-                  <input id="js-canvas-import-json-file" type="file" class="custom-file-input file-input">
-                    <span class="file-cta">
-                      <span class="file-label">
-                        Import
+              <div class="columns">
+                <div class="column">
+                  <div class="file">
+                    <label class="file-label">
+                    <input id="js-canvas-import-json-file" type="file" class="custom-file-input file-input">
+                      <span class="file-cta">
+                        <span class="file-label">
+                          Import
+                        </span>
                       </span>
-                    </span>
-                  </label>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="column">
+                  <a id="js-canvas-export-json-file" download="pdf_layout.json" href="" class="button">Export</a>
                 </div>
               </div>
 
-              <div class="column">
-                <a id="js-canvas-export-json-file" download="pdf_layout.json" href="" class="button">Export</a>
-              </div>
-            </div>
+              <h4 class="title is-5">Import Background Image</h4>
 
-            <h4 class="title is-5">Import Background Image</h4>
-
-            <div class="columns">
-              <div class="column">
-                <div class="file">
-                  <label class="file-label">
-                  <input id="js-canvas-import-background-image-file" type="file" class="custom-file-input file-input">
-                    <span class="file-cta">
-                      <span class="file-label">
-                        Import
+              <div class="columns">
+                <div class="column">
+                  <div class="file">
+                    <label class="file-label">
+                    <input id="js-canvas-import-background-image-file" type="file" class="custom-file-input file-input">
+                      <span class="file-cta">
+                        <span class="file-label">
+                          Import
+                        </span>
                       </span>
-                    </span>
-                  </label>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="title is-5">Export SVG</h4>
+
+              <div class="columns">
+                <div class="column">
+                  <a id="js-canvas-export-svg-file" download="pdf_layout.svg" href="" class="button">Export</a>
+                </div>
+              </div>
+
+              <h4 class="title is-5">Size</h4>
+
+              <div class="columns">
+                <div class="column">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Width</th>
+                        <th>Height</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td id="js-canvas-width"></td>
+                        <td id="js-canvas-height"></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
 
-            <h4 class="title is-5">Export SVG</h4>
-
-            <div class="columns">
-              <div class="column">
-                <a id="js-canvas-export-svg-file" download="pdf_layout.svg" href="" class="button">Export</a>
-              </div>
+            <div class="tab-content js-tab-content">
             </div>
-
-            <h4 class="title is-5">Size</h4>
-
-            <div class="columns">
-              <div class="column">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Width</th>
-                      <th>Height</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td id="js-canvas-width"></td>
-                      <td id="js-canvas-height"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content">
           </div>
         </section>
       </div>
