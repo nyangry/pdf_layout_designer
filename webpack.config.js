@@ -1,10 +1,13 @@
 const path = require('path');
+const src_directory = path.resolve(__dirname, 'src');
+const dist_directory = path.resolve(__dirname, 'dist');
 
 module.exports = {
+  context: src_directory,
   mode: 'production',
-  entry: './src/app.js',
+  entry: './app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: dist_directory,
     filename: "app.js"
   },
   module: {
