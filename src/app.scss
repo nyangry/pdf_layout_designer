@@ -22,9 +22,23 @@
 .control-area {
   cursor: pointer;
 
-  table {
-    td {
+  ul.object-list {
+    li {
+      border: 1px solid #dbdbdb;
       border-left: none;
+      border-top: none;
+
+      &.active-object {
+        background: rgba(0, 0, 255, 0.13);
+      }
+
+      &:first-child {
+        border-top: 1px solid #dbdbdb;
+      }
+
+      &:hover {
+        background: #eee;
+      }
     }
   }
 }

@@ -15,9 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.$canvas_height                       = document.getElementById('js-canvas-height')
   elements.$tabs                                = document.querySelectorAll('.js-tab')
   elements.$tab_contents                        = document.querySelectorAll('.js-tab-content')
+  elements.$object_list                             = document.querySelector('.js-object-list')
 
   // Initialize
   {
+    // Indicates whether group selection should be disabled
+    canvas.selection = false
+
     // set canvas size into witdh and height text
     elements.$canvas_width.innerHTML  = canvas.getWidth()
     elements.$canvas_height.innerHTML = canvas.getHeight()
@@ -105,6 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.$canvas_width.innerHTML  = Math.round(canvas.getWidth() * pow) / pow
         elements.$canvas_height.innerHTML = Math.round(canvas.getHeight() * pow) / pow
       }
+
+      reloadObjects()
     })
 
     // export SVG file
@@ -125,6 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         let rect_width  = mouse_up_position.x - mouse_down_position.x
         let rect_height = mouse_up_position.y - mouse_down_position.y
+
+        if (rect_width === 0 || rect_height === 0) {
+          return;
+        }
 
         canvas.add(new fabric.Rect({
           left: mouse_down_position.x,
@@ -155,5 +165,62 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.$tab_contents[index].classList.add('is-active');
       });
     });
+
+    // select object
+    canvas.on('selection:created', (e) => {
+      console.log(e)
+
+      selectObjectListTab();
+
+      setActiveObjectOnObjectList(e.target);
+    });
+
+    canvas.on('selection:updated', (e) => {
+      console.log(e)
+
+      selectObjectListTab();
+
+      setActiveObjectOnObjectList(e.target);
+    });
   }
+
+  // select object list tab
+  const selectObjectListTab = () => {
+    // TODO: fix by better code
+    elements.$tabs[1].click()
+  };
+
+
+  // set active object on object list
+  const setActiveObjectOnObjectList = (object) => {
+    const $target_li = elements.$object_list.querySelector(`li[key="${object.ownMatrixCache.key}"]`);
+
+    elements.$object_list.querySelectorAll('li').forEach(($li) => {
+      $li.classList.remove('active-object');
+    });
+
+    $target_li.classList.add('active-object');
+    console.log($target_li)
+  };
+
+  // reload objects
+  const reloadObjects = () => {
+    // console.log(canvas.getObjects());
+
+    elements.$object_list.querySelectorAll('li').forEach(($li) => {
+      $li.remove();
+    });
+
+    canvas.getObjects().forEach((object) => {
+      let $li = document.createElement('li');
+      let $span = document.createElement('span');
+
+      $span.textContent = object.ownMatrixCache.key;
+      $li.appendChild($span);
+
+      $li.setAttribute('key', object.ownMatrixCache.key);
+
+      elements.$object_list.appendChild($li);
+    });
+  };
 })
